@@ -13,6 +13,7 @@ import {
 } from 'recharts';
 import { User, Brain, Layers, FileBarChart } from 'lucide-react';
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard';
+import Link from 'next/link';
 
 export default function AdminDashboardPage() {
 	const [stats, setStats] = useState({ users: 0, skills: 0, categories: 0 });
@@ -95,15 +96,15 @@ export default function AdminDashboardPage() {
 							className="h-[350px] flex flex-col justify-center"
 						>
 							<div className="flex flex-col items-center space-y-4">
-								<a href="/admin/skill-category" className="block w-full py-3 bg-[#00B5BE] rounded-xl text-white font-medium text-center">
+								<Link href="/admin/skill-category" className="block w-full py-3 bg-[#00B5BE] rounded-xl text-white font-medium text-center">
 									Manage Categories
-								</a>
-								<a href="/admin/users" className="block w-full py-3 bg-[#00CCFF] rounded-xl text-white font-medium text-center">
+								</Link>
+								<Link href="/admin/users" className="block w-full py-3 bg-[#00CCFF] rounded-xl text-white font-medium text-center">
 									Manage Users
-								</a>
-								<a href="/admin/export-tool" className="block w-full py-3 bg-[#F0B323] rounded-xl text-white font-medium text-center">
+								</Link>
+								<Link href="/admin/export-tool" className="block w-full py-3 bg-[#F0B323] rounded-xl text-white font-medium text-center">
 									Export Survey
-								</a>
+								</Link>
 							</div>
 						</GlassCard>
 					</div>

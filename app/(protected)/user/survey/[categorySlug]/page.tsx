@@ -11,6 +11,7 @@ import { GlassCard } from "@/components/ui/GlassCard/GlassCard";
 
 export const dynamic = 'force-dynamic';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default async function Page({ params }: any) {
     const session = await getServerSession(authOptions);
     if (!session?.user.id) redirect('/login');
