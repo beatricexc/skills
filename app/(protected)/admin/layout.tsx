@@ -4,6 +4,7 @@ import React from 'react';
 import Dropdown from '@/components/ui/Dropdown/Dropdown';
 import Sidebar from '@/components/ui/Sidebar/Sidebar';
 import FrostyLogo from '@/components/ui/FrostyLogo/FrostyLogo';
+import Link from 'next/link';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -23,7 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         {/* Header */}
         <header className="w-full border-b-2 border-violet-200">
           <div className="container mx-auto px-8 flex justify-between items-center py-6">
-            <FrostyLogo className="animate-frost-wave" />
+            <Link href="/"><FrostyLogo className="animate-frost-wave" /></Link>
             <Dropdown />
           </div>
         </header>

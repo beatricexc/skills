@@ -6,14 +6,16 @@ import { levelMeta } from '../../data'
 export const LevelsOverview: FC = () => (
     <section
         className={`
-      p-6
-      bg-white/20 backdrop-blur-sm
-      border border-white/30
-      rounded-2xl
-      space-y-4
-    `}
+            px-6
+            sm:px-20
+            py-6
+            bg-white/20 backdrop-blur-sm
+            border border-white/30
+            rounded-2xl
+            space-y-4
+        `}
     >
-        <h2 className="text-2xl font-semibold text-[#234F8E] text-center">
+        <h2 className="text-3xl font-semibold text-[#234F8E] mb-15 mt-5">
             How to rate your skill level
         </h2>
 

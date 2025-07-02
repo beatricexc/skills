@@ -3,20 +3,26 @@
 import * as Dialog from '@radix-ui/react-dialog'
 import { Plus, X } from 'lucide-react'
 import { addSkill } from '@/app/actions/skill'
-import { useState } from 'react'
+import { useActionState, useEffect, useRef, useState } from 'react'
 import { Category } from '@prisma/client'
-import { useFormState } from 'react-dom'
 import { GlassCard } from '@/components/ui/GlassCard/GlassCard'
 
-/**
- * AddSkillToCategoryForm
- *
- * A dialog form to add a new skill to a category, leveraging the shared GlassCard component
- * and the project's teal accent (#00BFB3) and deep blue header (#234F8E) from our palette.
- */
 export default function AddSkillToCategoryForm({ category }: { category: Category }) {
 	const [open, setOpen] = useState(false)
-	const [state, formAction] = useFormState(addSkill, {})
+	const [state, formAction] = useActionState(addSkill, {})
+	const [showSuccess, setShowSuccess] = useState(false)
+	const formRef = useRef<HTMLFormElement>(null)
+
+	// Reset form and show success when state.success is updated
+	useEffect(() => {
+		if (state.success) {
+			setShowSuccess(true)
+			formRef.current?.reset()
+
+			const timer = setTimeout(() => setShowSuccess(false), 3000)
+			return () => clearTimeout(timer)
+		}
+	}, [state.success])
 
 	return (
 		<Dialog.Root open={open} onOpenChange={setOpen}>
@@ -45,7 +51,7 @@ export default function AddSkillToCategoryForm({ category }: { category: Categor
 							</Dialog.Close>
 						</div>
 
-						<form action={formAction} className="space-y-4">
+						<form action={formAction} ref={formRef} className="space-y-4">
 							<input type="hidden" name="categoryId" value={category.id} />
 
 							<input
@@ -53,13 +59,23 @@ export default function AddSkillToCategoryForm({ category }: { category: Categor
 								name="name"
 								required
 								placeholder="Skill name"
-								className="w-full p-2 border-b-2 border-b-[#00BFB3] bg-transparent placeholder-gray-400 text-gray-800 focus:outline-none focus:ring-0"
+								className="w-full p-2 border-b-2 border-b-[#00BFB3] bg-transparent placeholder-gray-700 text-black focus:outline-none focus:ring-0"
 							/>
 
 							{state.error && (
 								<p className="text-sm text-red-600 mt-1">{state.error}</p>
 							)}
 
+							<div className="h-5">
+								<p
+									className={`
+										text-sm text-teal-700 mt-1 transition-opacity duration-300
+										${showSuccess ? 'opacity-100' : 'opacity-0'}
+									`}
+								>
+									{state.success}
+								</p>
+							</div>
 							<div className="flex justify-end space-x-3 pt-4">
 								<Dialog.Close asChild>
 									<button

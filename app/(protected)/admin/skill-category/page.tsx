@@ -46,13 +46,12 @@ export default async function Page({ searchParams }: any) {
                         {error ? (
                             <p
                                 className="
-                  flex items-center gap-2
-                  w-full
-                  px-4 py-2 rounded-lg
-                  backdrop-blur-sm bg-[rgba(255,255,255,0.2)]
-                  border border-red-400
-                  text-red-600 font-medium
-                "
+                                    flex items-center gap-2
+                                    w-full
+                                    px-4 py-2 rounded-lg
+                                    backdrop-blur-sm bg-[rgba(255,255,255,0.2)]
+                                    border border-red-400
+                                    text-red-600 font-medium"
                             >
                                 <svg
                                     className="w-5 h-5 text-red-500 flex-shrink-0"
@@ -66,13 +65,13 @@ export default async function Page({ searchParams }: any) {
                         ) : (
                             <p
                                 className="
-                  flex items-center gap-2
-                  w-full
-                  px-4 py-2 rounded-lg
-                  backdrop-blur-sm bg-[rgba(255,255,255,0.2)]
-                  border border-teal-300
-                  text-teal-700 font-medium
-                "
+                                    flex items-center gap-2
+                                    w-full
+                                    px-4 py-2 rounded-lg
+                                    backdrop-blur-sm bg-[rgba(255,255,255,0.2)]
+                                    border border-teal-300
+                                    text-teal-700 font-medium
+                                    "
                             >
                                 <svg
                                     className="w-5 h-5 text-teal-500 flex-shrink-0"
