@@ -12,7 +12,7 @@ export const authOptions: AuthOptions = {
 
   secret: process.env.NEXTAUTH_SECRET,
 
-  debug: true, // 🔍 Enable debug logging always
+  debug: process.env.NODE_ENV === "production", //  Enable debug logging always
 
   pages: {
     signIn: "/login",
@@ -55,7 +55,7 @@ export const authOptions: AuthOptions = {
 
     async session({ session }) {
       if (!session.user?.email) {
-        console.warn("⚠️ Session started without user email");
+        console.warn(" Session started without user email");
         return session;
       }
 
@@ -67,7 +67,7 @@ export const authOptions: AuthOptions = {
         session.user.id = dbUser.id;
         session.user.role = dbUser.role;
       } else {
-        console.warn("⚠️ No user found in DB for email:", session.user.email);
+        console.warn(" No user found in DB for email:", session.user.email);
       }
 
       return session;
