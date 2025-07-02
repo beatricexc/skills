@@ -48,7 +48,7 @@ export default function SkillForm({ categoryWithSkills, userId, initialUserSkill
                     defaultChecked={String(level.level) === getLevel(skill.id, updateUserSkills)}
                     className="peer hidden"
                   />
-                  <div className="w-5 h-5 rounded-full border-0 bg-white flex items-center justify-center peer-checked:bg-purple-400">
+                  <div className="w-5 h-5 rounded-full border-0 bg-white flex items-center justify-center peer-checked:bg-teal-400">
                     <div className="w-2.5 h-2.5 bg-purple-400 rounded-full scale-0 peer-checked:scale-100 transition-transform" />
                   </div>
                 </label>
@@ -60,7 +60,7 @@ export default function SkillForm({ categoryWithSkills, userId, initialUserSkill
       </form>
 
       <Link
-        className="inline-flex items-center mt-8 text-violet-600 underline underline-offset-2 hover:text-violet-700"
+        className="inline-flex items-center mt-8  text-teal-800 underline underline-offset-2"
         href="/user/survey"
       >
         Go to main survey page

@@ -24,13 +24,13 @@ export default async function UserSurveyLanding() {
                 alt="Brain background"
                 className="absolute inset-0 w-full h-full object-cover filter blur-3xl scale-110"
             />
-            <div className="relative z-10 max-w-5xl mx-auto py-12 px-6 space-y-12">
+            <div className="relative z-10 max-w-8xl mx-auto py-12 px-6 space-y-12">
                 {/* Greeting */}
                 <div>
-                    <h1 className="text-4xl font-bold text-white drop-shadow-lg">
+                    <h1 className="text-5xl font-bold text-white drop-shadow-lg">
                         Hey, {firstName}!
                     </h1>
-                    <p className="mt-2 text-lg text-white/90 drop-shadow">
+                    <p className="mt-2 text-xl text-white/90 drop-shadow">
                         Welcome to the Skills Survey. First, see how we define each level below.
                     </p>
                 </div>
@@ -46,11 +46,11 @@ export default async function UserSurveyLanding() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {categories.map(cat => (
                             <Link key={cat.id} href={`/user/survey/${cat.slug}`} passHref>
-                                <GlassCard className="cursor-pointer">
+                                <GlassCard className="bg-[rgba(244,244,244,0.6)] backdrop-blur-sm cursor-pointer">
                                     <h3 className="text-xl font-semibold text-[#234F8E] mb-2">
                                         {cat.name}
                                     </h3>
-                                    <p className="text-sm text-[#00BFB3]">
+                                    <p className="text-sm text-blue-900">
                                         Start or resume the {cat.name} section.
                                     </p>
                                 </GlassCard>

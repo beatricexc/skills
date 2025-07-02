@@ -4,31 +4,31 @@ import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
 
 export async function addSkill(
-	state: { error?: string },
+	state: { error?: string; success?: string },
 	formData: FormData
-): Promise<{ error?: string }> {
-    const name = formData.get('name')?.toString().trim();
-    const categoryId = formData.get('categoryId')?.toString();
+): Promise<{ error?: string; success?: string }> {
+	const name = formData.get('name')?.toString().trim();
+	const categoryId = formData.get('categoryId')?.toString();
 
-    if (!name || !categoryId) {
-      return { error: 'Missing fields' };
-    }
+	if (!name || !categoryId) {
+		return { error: 'Missing fields' };
+	}
 
-    const existing = await prisma.skill.findFirst({
-      where: { name, categoryId },
-    });
+	const existing = await prisma.skill.findFirst({
+		where: { name, categoryId },
+	});
 
-    if (existing) {
-      return { error: `A skill with the name "${name}" already exists in this category.` };
-    }
+	if (existing) {
+		return { error: `A skill with the name "${name}" already exists in this category.` };
+	}
 
-    await prisma.skill.create({
-        data: { name, categoryId },
-    });
+	await prisma.skill.create({
+		data: { name, categoryId },
+	});
 
-    revalidatePath('/skill-category');
+	revalidatePath('/skill-category');
 
-    return {};
+	return { success: `Skill "${name}" added successfully.` };
 }
 
 export async function deleteSkill(formData: FormData) {

@@ -37,7 +37,7 @@ export function SurveyNavigation({ surveyFlow  }: SurveyNavigationProps) {
       </button>
       <button
         onClick={goToNextStep}
-        className="cursor-pointer text-white px-4 py-2 rounded bg-purple-800 hover:bg-purple-900 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="cursor-pointer px-4 py-2 rounded bg-[#00B5BE] text-white disabled:opacity-50 disabled:cursor-not-allowed"
         disabled={!nextSlug}
       >
         Next

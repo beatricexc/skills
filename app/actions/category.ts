@@ -9,7 +9,7 @@ import { Prisma } from '@prisma/client';
 export async function createCategory(
 	state: { error?: string },
 	formData: FormData
-): Promise<{ error?: string }> {
+): Promise<{ error?: string, success?: string }> {
 	const name = formData.get('name')?.toString().trim();
 
 	if (!name) {
@@ -27,7 +27,7 @@ export async function createCategory(
 		});
 
 		revalidatePath('/admin/skill-category');
-		return {}; // success
+		return { success: `Category ${name} created successfully` };
 	} catch (error) {
 		// Safely check if it's a Prisma known request error
 		if (

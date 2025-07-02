@@ -31,15 +31,15 @@ export const LevelCard: FC<LevelCardProps> = ({
         />
 
         {/* Level & Title */}
-        <h3 className="text-lg font-semibold text-[#00BFB3]">
+        <h3 className="text-lg font-semibold text-[#234F8E]">
             Level {level}: {title}
         </h3>
 
         {/* Playful tagline */}
-        <p className="text-sm italic text-gray-700">{tagline}</p>
+        <p className="text-md italic text-gray-700">{tagline}</p>
 
         {/* Official definition (always visible) */}
-        <p className="mt-2 text-xs text-gray-800 px-2">
+        <p className="mt-2 text-md text-gray-800 px-2">
             {definition}
         </p>
     </div>

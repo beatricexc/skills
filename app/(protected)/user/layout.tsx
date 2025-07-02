@@ -3,6 +3,7 @@
 import React from 'react';
 import FrostyLogo from '@/components/ui/FrostyLogo/FrostyLogo';
 import { signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 interface UserLayoutProps {
   children: React.ReactNode;
@@ -31,7 +32,8 @@ export default function UserLayout({ children }: UserLayoutProps) {
         <header className="w-full border-b border-[rgba(244,244,244,0.3)]">
           <div className="container mx-auto px-8 flex justify-between items-center py-6">
             {/* Logo */}
-            <FrostyLogo className="animate-frost-wave" />
+            <Link href="/"><FrostyLogo className="animate-frost-wave" /></Link>
+         
 
             {/* User avatar + sign out */}
             <div className="flex items-center gap-4">
