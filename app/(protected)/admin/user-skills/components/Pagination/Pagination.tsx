@@ -35,33 +35,41 @@ export default function UserSkillsPagination({ currentPage = 1, pageSize = 5, to
   return (
       <div>
           <form onSubmit={handleSubmit} className="flex gap-2 mt-10 items-center justify-center">
-              <label htmlFor="pageInput">Page:</label>
+              <label className=' text-[#234F8E]' htmlFor="pageInput">Page:</label>
               <input
                   id="pageInput"
                   type="number"
                   min={1}
                   value={inputPage}
                   onChange={(e) => setInputPage(Number(e.target.value))}
-                  className="border px-2 py-1 w-20"
+                  className="px-2 py-1 w-20  text-sm rounded-lg
+                              bg-[rgba(255,255,255,0.2)] backdrop-blur-sm
+                              border border-[rgba(244,244,244,0.3)]
+                              focus:outline-none focus:ring-2 focus:ring-[#A1DAD7] focus:border-transparent
+                              transition"
               />
 
-              <label htmlFor="pageInput">Page size:</label>
+              <label className=' text-[#234F8E]' htmlFor="pageInput">Page size:</label>
               <input
                   id="pageSize"
                   type="number"
                   min={2}
                   value={pageSizeInput}
                   onChange={(e) => setPageSizeInput(Number(e.target.value))}
-                  className="border px-2 py-1 w-20"
+                  className="px-2 py-1 w-20  text-sm rounded-lg
+                  bg-[rgba(255,255,255,0.2)] backdrop-blur-sm
+                  border border-[rgba(244,244,244,0.3)]
+                  focus:outline-none focus:ring-2 focus:ring-[#A1DAD7] focus:border-transparent
+                  transition"
               />
-              <button type="submit" className="cursor-pointer bg-violet-700 hover:bg-violet-800 text-white px-3 py-1 rounded">
+              <button type="submit" className="cursor-pointer bg-[#00BFB3] hover:bg-[#68aaa6] text-white px-3 py-1 rounded">
                   Search
               </button>
           </form>
           <div className='flex justify-center mt-5'>
               {totalItems && totalItems > 0 && (
                 <div className="justify-center items-center text-sm text-gray-600 bg-gray-50 border border-gray-200 px-4 py-2 rounded shadow-sm inline-block">
-                  <span className="font-medium text-purple-700">
+                  <span className="font-medium text-[#234F8E]">
                     Total Pages: {Math.ceil(totalItems / pageSize)}
                   </span>{' '}
                   <span className="ml-1 text-gray-500">

@@ -17,9 +17,15 @@ export default function LevelFilter({
   return (
     <div className="flex gap-4 items-center">
       <div>
-        <label className="text-sm font-medium text-gray-700 block mb-1">Comparison</label>
+        <label className="text-sm font-medium text-[#234F8E] block mb-1">Comparison</label>
         <select
-          className="border p-2 rounded text-sm"
+          className="
+          block w-full px-4 py-2 text-sm rounded-lg
+          bg-[rgba(255,255,255,0.2)] backdrop-blur-sm
+          border border-[rgba(244,244,244,0.3)]
+          focus:outline-none focus:ring-2 focus:ring-[#A1DAD7] focus:border-transparent
+          transition
+        "
           value={operator}
           onChange={(e) => {
             const newOperator = e.target.value;
@@ -36,9 +42,15 @@ export default function LevelFilter({
       </div>
 
       <div>
-        <label className="text-sm font-medium text-gray-700 block mb-1">Level</label>
+        <label className="text-sm font-medium text-[#234F8E] block mb-1">Level</label>
         <select
-          className="border p-2 rounded text-sm"
+          className="
+          block w-full px-4 py-2 text-sm rounded-lg
+          bg-[rgba(255,255,255,0.2)] backdrop-blur-sm
+          border border-[rgba(244,244,244,0.3)]
+          focus:outline-none focus:ring-2 focus:ring-[#A1DAD7] focus:border-transparent
+          transition
+        "
           value={level}
           onChange={(e) => {
             const newLevel = parseInt(e.target.value);

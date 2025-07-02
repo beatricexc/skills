@@ -17,13 +17,13 @@ export default function UserList({ users }: { users: User[] }) {
             className="h-full p-4 rounded shadow-sm hover:shadow-md transition"
           >
             <div>
-              <p className="font-semibold">{user.name || 'Unnamed User'}</p>
-              <p className="text-sm text-gray-500 break-all">{user.email}</p>
-              <p className="text-xs text-gray-400 capitalize">Role: {user.role}</p>
+              <p className="font-semibold mb-2">{user.name || 'Unnamed User'}</p>
+              <p className="text-md text-black break-all">{user.email}</p>
+              <p className="text-md  text-[#234F8E] capitalize">Role: <span className="italic">{user.role}</span></p>
             </div>
             <Link
               href={`/admin/users/${user.id}`}
-              className="text-violet-600 font-bold text-sm underline hover:text-blue-800"
+              className=" text-[#234F8E] font-bold text-md underline hover:text-blue-800"
             >
               View Skills →
             </Link>

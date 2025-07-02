@@ -22,14 +22,21 @@ export default async function UsersPage({
   const totalPages = Math.ceil(totalUsers / pageSize);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 space-y-6">
-      <h1 className="text-2xl font-bold">Manage Users</h1>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 space-y-6
+          bg-gradient-to-br 
+          from-white/30        /* White at 30% opacity, top-left */
+          to-[#c6d8e5]/60         /* White at 20% opacity */
+          backdrop-blur-sm
+          border border-[rgba(244,244,244,0.3)]
+          rounded-xl
+          ">
+      <h1 className="text-2xl font-bold text-[#234F8E]">Manage Users</h1>
 
       <div className="overflow-x-auto">
         <table className="w-full text-left min-w-[600px]">
           <thead>
-            <tr className="border-b-2 border-b-purple-300">
-              <th className="py-2">Name</th>
+            <tr className="text-[#234F8E] border-b-2 border-b-blue-200">
+              <th className="py-6">Name</th>
               <th>Email</th>
               <th>Role</th>
               <th className="text-right">Action</th>
@@ -37,8 +44,8 @@ export default async function UsersPage({
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user.id} className="border-b border-purple-200">
-                <td className="py-2">{user.name ?? '—'}</td>
+              <tr key={user.id} className=" border-b border-b-blue-200">
+                <td className="py-4">{user.name ?? '—'}</td>
                 <td className="break-words">{user.email ?? '—'}</td>
                 <td className="capitalize">{user.role}</td>
                 <td className="text-right">
@@ -53,9 +60,8 @@ export default async function UsersPage({
                       type="submit"
                       className="
                           px-4 py-2 text-white font-medium text-sm
-                          bg-[#00CCFF] hover:bg-[#00B5BE]
-                          rounded-xl transition
-                        "
+                          bg-[#00CCFF] hover:bg-[#0089ab]
+                          rounded-xl transition"
                     >
                       Make {user.role === 'admin' ? 'User' : 'Admin'}
                     </button>

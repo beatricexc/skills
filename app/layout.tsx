@@ -3,8 +3,8 @@ import SessionWrapper from "@/components/ui/SessionWrapper/SessionWrapper";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Auth Example",
-  description: "Next.js + Auth.js"
+  title: "Skill Survey",
+  description: "IQVIA skill survey app"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
